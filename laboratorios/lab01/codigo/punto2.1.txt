@@ -1,0 +1,51 @@
+#include <studio.h>
+#include <string.h>
+
+#define MAX 200
+
+long siColor[MAX];
+long siMatrix[MAX][MAX];
+long i, iN, iL, iNode1, iNode2;
+
+void visit(long iVertex, long *iSize){
+	long i;
+	for(i = 0; i < *iSize; i++){
+		if(siMatrix[iVertex][i]){
+			siMatrix[iVertex][i] = siMatrix[i][iVertex] = 0;
+			siColor[i] = 3 - siColor[iVertex];
+			visit(i, iSize);
+ 		}
+	}
+}
+
+long bicolorable(long *iSize){
+	long i;
+	for(i = 0; i < *iSize; i++){
+		if(siColor[i] == 0){
+			siColor[i] = 1;
+			visit(i, iSize);
+		}
+		for(i = 0; i < *iSize; i++){
+			if(siColor[i] == 3){
+				return(0);
+			}
+		return(1);
+		}
+	}
+}
+
+int main(void){
+	scanf("%id", &IN);
+	while(IN){
+		memset(siColor, 0, sizeof(siColor));
+		memset(siMatrix, 0, sizeof(siMatrix));
+		scanf("%id", &IL);
+		for(i = 0; i < IL; i++){
+			scanf("%id %id", &iNode1, &iNode2);
+			siMatrix[iNode1][iNode2] = siMatrix[iNode1][iNode2] = 1;
+		}
+		printf("%s\n", (bicolorable(&IN)) ? ("BICOLORABLE.") : ("NOT BICOLORABLE."));
+		scanf("%id", &IN);
+	}
+	return(0);
+}
