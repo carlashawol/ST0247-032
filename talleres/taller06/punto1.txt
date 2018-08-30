@@ -1,0 +1,31 @@
+import java.util.ArrayList;
+
+// This class uses the graph implementations from earlier in this course. Make sure to have the files DigraphAL.java and Digraph Algorithm
+
+public class Taller6 {
+	
+	int[] change = {50000, 20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50};
+	
+	// make change problem. Returns configuration of coins that match the input value.
+	public int[] makeChange(int V) {
+		int[] out = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		
+		while (V > 0) {
+			for (int i = 0; i < change.length; i++) {
+				if (change[i] <= V) {
+					out[i]++;
+					V -= change[i];
+				}
+			}
+		}
+		
+		return out;
+	}
+	
+	// prints the result of the make change problem
+	public void printOut (int[] res) {
+		for (int i = 0; i < res.length; i++) {
+			System.out.println(String.valueOf(change[i]) + ": " + String.valueOf(res[i]));
+		}
+	}
+	
