@@ -1,0 +1,29 @@
+class Usuario(Objet):
+
+    def _init_(self, nombre, documento, usuario, password):
+        self.nombre=nombre
+	self.documento=documento
+	self.usuario=usuario
+	self.password=password
+    def login(Usuario,Pasword):
+    def BuscarArchivo(idArchivo):
+
+class Supervisor(Usuario):
+    def _init_(self, nombre, documento, usuario, password):
+        Usuario._init_(self, nombre, documento, usuario, password)
+
+    def agregarArchivo(idArchivo):
+
+    def generarReporte(idArchivo):
+
+    def imprimirReporte():
+
+class Administrador(Supervisor):
+
+    def _init_(self, nombre, documento, usuario, password):
+        Supervisor._init_(self, nombre, documento, usuario, password)
+        Usuario._init_(self, nombre, documento, usuario, password)
+
+    def eliminarArchivo(idArchivo):
+
+	
